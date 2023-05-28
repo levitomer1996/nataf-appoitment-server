@@ -39,6 +39,7 @@ export class AuthService {
     }
   }
   async signIn(creds: SigninCredentials): Promise<SigninData> {
+    
     const user = await this.userModel.findOne({ email: creds.email });
     if (!user) {
       this.logger.log('User not exist');
